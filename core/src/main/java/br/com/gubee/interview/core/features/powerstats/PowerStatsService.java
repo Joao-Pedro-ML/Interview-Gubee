@@ -1,6 +1,7 @@
 package br.com.gubee.interview.core.features.powerstats;
 
 import br.com.gubee.interview.model.PowerStats;
+import br.com.gubee.interview.model.dto.HeroDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,4 +18,9 @@ public class PowerStatsService {
     public UUID create(PowerStats powerStats) {
         return powerStatsRepository.create(powerStats);
     }
+
+    public void updateStats(UUID stats_id, HeroDTO hero) {
+        powerStatsRepository.updateStats(stats_id, hero);
+    }
+
 }

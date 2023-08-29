@@ -1,9 +1,9 @@
 FROM openjdk:11-jre-slim-sid
 
-LABEL maintainer="Brainweb"
+LABEL maintainer="Gubee"
 LABEL version="1.0"
 
-ENV DB_NAME="postgres"
+ENV DB_NAME="localhost"
 ENV DB_HOSTNAME="localhost"
 ENV DB_PORT="5432"
 ENV DB_USERNAME="gubee"
