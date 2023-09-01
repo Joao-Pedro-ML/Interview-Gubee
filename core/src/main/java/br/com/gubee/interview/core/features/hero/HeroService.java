@@ -15,11 +15,16 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-@RequiredArgsConstructor
+
 public class HeroService {
 
     private final HeroRepository heroRepository;
     private final PowerStatsService powerStatsService;
+
+    public HeroService(HeroRepository herorep, PowerStatsService power){
+        this.heroRepository = herorep;
+        this.powerStatsService = power;
+    }
 
     @Transactional
     public UUID create(CreateHeroRequest createHeroRequest) {
