@@ -29,6 +29,15 @@ public class HeroController {
         final UUID id = heroService.create(createHeroRequest);
         return created(URI.create(format("/api/v1/heroes/%s", id))).build();
     }
+    // Testado e funcionando
+    // Requisição: curl -X POST -H "Content-Type: application/json" -d '{
+    //  "name": "Wonder Woman",
+    //  "agility": 8,
+    //  "dexterity": 8,
+    //  "strength": 8,
+    //  "intelligence": 8,
+    //  "race": "DIVINE"
+    //}' http://localhost:8080/api/v1/heroes
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@Validated @PathVariable UUID id) {
@@ -39,6 +48,8 @@ public class HeroController {
             return notFound().build();
         }
     }
+    // Testado e funcionando
+    // Requisição: curl http://localhost:8080/api/v1/heroes/021c8fdb-f1ab-400d-858b-2eff9b5599e0
 
     @GetMapping
     public ResponseEntity<?> findByName(@Validated @RequestParam String name) {
@@ -48,6 +59,8 @@ public class HeroController {
             return noContent().build();
         }
     }
+    // Testado e funcionando
+    // Requisição: curl 'http://localhost:8080/api/v1/heroes?name=Wonder+Woman'
 
     @PutMapping("/{id}")
     public ResponseEntity<?> updateHero(
@@ -71,6 +84,7 @@ public class HeroController {
             return notFound().build();
         }
     }
+// Requisição: curl -X DELETE http://localhost:8080/api/v1/heroes/e484fd49-aa9a-40b4-9b21-e51782dcb22d
 
     @GetMapping("/compare/{id1}/{id2}")
     public ResponseEntity<?> compare(
@@ -84,4 +98,6 @@ public class HeroController {
 
         return ok(heroes);
     }
+    // Requisição: curl http://localhost:8080/api/v1/heroes/compare/0812e81f-a970-4313-a60c-aac5ea684875/ce384c88-945f-4004-bd7e-bbd46659564a
+
 }

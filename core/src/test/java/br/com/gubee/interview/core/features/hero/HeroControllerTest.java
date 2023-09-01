@@ -34,7 +34,7 @@ class HeroControllerTest {
 
     @BeforeEach
     public void initTest() {
-        when(heroService.create(any())).thenReturn(1L);
+        when(heroService.create(any())).thenReturn(UUID.randomUUID());
     }
 
     @Test

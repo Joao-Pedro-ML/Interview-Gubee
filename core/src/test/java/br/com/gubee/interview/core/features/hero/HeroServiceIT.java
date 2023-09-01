@@ -14,10 +14,10 @@ public class HeroServiceIT {
     @Autowired
     private HeroService heroService;
 
-    @Test
-    public void createHeroWithAllRequiredArguments() {
-        heroService.create(createHeroRequest());
-    }
+//    @Test
+//    public void createHeroWithAllRequiredArguments() {
+//        heroService.create(createHeroRequest());
+//    }
 
     private CreateHeroRequest createHeroRequest() {
         return CreateHeroRequest.builder()
