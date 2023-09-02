@@ -74,6 +74,7 @@ public class HeroController {
         }
 
     }
+    // Testado e funcionando
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@Validated @PathVariable UUID id) {

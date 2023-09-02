@@ -1,0 +1,59 @@
+Este arquivo contém as requisições HTTP que devem ser utilizadas para testar a aplicação:
+
+    - Criar um herói:
+        curl -X POST -H "Content-Type: application/json" -d '{
+              "name": "Wonder Woman",
+              "agility": 8,
+              "dexterity": 8,
+              "strength": 8,
+              "intelligence": 8,
+              "race": "DIVINE"
+            }' http://localhost:8080/api/v1/heroes
+        Utiliza uma solicitação POST para criar um novo herói. O corpo da solicitação está np formato json
+        e isso é informado para a aplicação via -H.
+
+    - FindByID:
+        curl http://localhost:8080/api/v1/heroes/021c8fdb-f1ab-400d-858b-2eff9b5599e0
+        Como definido na anotação @GetMapping("/{id}") devemos passar o id desejado na requisição
+        após /heroes.
+
+    - FindByName:
+        curl 'http://localhost:8080/api/v1/heroes?name=Wonder+Woman'
+        A partir da interrogação, é possível passar um parâmetro de consulta pela URL.
+
+    - updateHero:
+        curl -X PUT -H "Content-Type: application/json" -d '{
+          "name": "Batman",
+          "race": "HUMAN",
+          "powerStats": {
+            "agility": 7,
+            "dexterity": 6,
+            "strength": 7,
+            "intelligence": 10
+          }
+        }' http://localhost:8080/api/v1/heroes/6a6233b9-f81a-416e-8012-3a9686e9a986
+        Utilizando a mesma lógica da criação de heróis, esta requisição faz uma solicitação do tipo PUT
+        para atualizar heróis, passando campos como o nome, a raça e o conjunto powerStats.
+    - delete:
+        curl -X DELETE http://localhost:8080/api/v1/heroes/e484fd49-aa9a-40b4-9b21-e51782dcb22d
+        Utiliza a solicitação DELETE para excluir um herói com base no id
+
+    - compare:
+        curl http://localhost:8080/api/v1/heroes/compare/6a6233b9-f81a-416e-8012-3a9686e9a986/d781d230-8ab9-4367-aa3b-e4788b059111
+        Esta requisição recebe dois ids de heróis diferentes e realiza uma consulta no banco para comparar
+        os atributos de ambos.
+
+    - ids já criados:
+        021c8fdb-f1ab-400d-858b-2eff9b5599e0
+        6a6233b9-f81a-416e-8012-3a9686e9a986
+        d781d230-8ab9-4367-aa3b-e4788b059111
+
+
+
+
+
+
+
+
+
+
